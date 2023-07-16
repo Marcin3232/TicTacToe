@@ -1,1 +1,31 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #c7edff;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+p {
+  text-align: center;
+  margin: 10px;
+}
+
+@media (max-width-768px) {
+  .main-container {
+    font-size: 16px;
+  }
+}
