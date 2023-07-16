@@ -1,10 +1,16 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "./styles/import.scss";
 
 html,
 body {
   height: 100%;
+  position: relative;
   margin: 0;
   padding: 0;
+  background-image: url("./assets/backgrounds/74.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .main-container {
@@ -13,9 +19,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: #c7edff;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-family: TitanOne;
 }
 
 h1,
@@ -25,6 +30,9 @@ p {
 }
 
 @media (max-width-768px) {
+  body {
+    background-size: auto 100%;
+  }
   .main-container {
     font-size: 16px;
   }
