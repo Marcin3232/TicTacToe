@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CardButtonModule } from './layouts/card-button/card-button.module';
 import { TitleModule } from './layouts/title/title.module';
+import { ContrpolPanelModule } from './layouts/control-panel/control-panel.moduel';
+import { ButtonModule } from './layouts/button/button.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TitleModule } from './layouts/title/title.module';
     BrowserModule,
     AppRoutingModule,
     CardButtonModule,
-    TitleModule
+    TitleModule,
+    ContrpolPanelModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

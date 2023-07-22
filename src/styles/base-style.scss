@@ -1,0 +1,54 @@
+.glass {
+  width: var(--size-m);
+  height: var(--size-m);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--foreground-color);
+  font-size: 2rem;
+  border: 1px solid rgba(white, 0.6);
+  background-color: rgba(white, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+  box-shadow: 0px calc(var(--size) / 6) calc(var(--size) / 3) rgba(black, 0.1);
+}
+
+.glass-flash {
+  --transition-duration: 500ms;
+  --transition-easing: ease-out;
+
+  cursor: pointer;
+  transition: transform var(--transition-duration) var(--transition-easing);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    background: rgba(white, 0.4);
+    width: 60%;
+    height: 100%;
+    top: 0%;
+    left: -125%;
+
+    transform: skew(45deg);
+    position: absolute;
+    transition: left var(--transition-duration) var(--transition-easing);
+  }
+
+  &:hover {
+    transform: translateY(-5%);
+
+    &::before {
+      left: 150%;
+    }
+  }
+}
+
+.glass-click {
+  &:active {
+    box-shadow: inset 0px calc(var(--size-m) / 6) calc(var(--size-m) / 3)
+      rgba(black, 0.1);
+  }
+}
