@@ -1,6 +1,16 @@
 :root {
   //colors
   --foreground-color: rgb(49, 49, 49);
+  --blue-glass-color: rgba(31, 209, 249, 0.1);
+  --orange-glass-color: rgba(247, 180, 44, 0.5);
+  --green-glass-color:rgba(137, 216, 211, 0.5);
+
+  //gradients
+  --blue-glass-color-gradient: linear-gradient(315deg, rgba(31, 209, 249, 0.1) 0%, rgba(182, 33, 254, 0.1) 74%);
+  --orange-glass-color-gradient: linear-gradient(315deg, rgba(247, 180, 44, 0.1) 0%, rgba(252, 87, 94, 0.1) 74%);
+  --green-glass-color-gradient:linear-gradient(315deg, rgba(137, 216, 211, 0.1) 0%, rgba(3, 200, 168, 0.1) 74%);
+
+
   //font-size
 
   //size
