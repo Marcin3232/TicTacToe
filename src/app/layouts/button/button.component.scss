@@ -1,0 +1,16 @@
+.button {
+  width: 100%;
+  height: var(--size-m);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--foreground-color);
+  font-size: 2rem;
+  background-color: var(--blue-glass-color);
+  background-image: var(--blue-glass-color-gradient);
+  backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+}
