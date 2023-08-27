@@ -4,41 +4,16 @@
   </div>
 </div>
 <p></p>
-<div class="row align-items-center">
-  <div class="col">
-    <app-card-button></app-card-button>
+<ng-container *ngFor="let row of gameService.getBoard">
+  <div class="row align-items-center">
+    <ng-container *ngFor="let tile of row">
+      <div class="col">
+        <app-card-button [tile]="tile"></app-card-button>
+      </div>
+    </ng-container>
   </div>
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-</div>
+</ng-container>
 <p></p>
-<div class="row align-items-center">
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-</div>
-<p></p>
-<div class="row align-items-center">
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-  <div class="col">
-    <app-card-button></app-card-button>
-  </div>
-</div>
 <div class="row align-items-start">
   <div class="col">
     <app-control-panel></app-control-panel>
@@ -49,3 +24,4 @@
     <app-button></app-button>
   </div>
 </div>
+

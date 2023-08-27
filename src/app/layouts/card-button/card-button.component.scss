@@ -1,4 +1,14 @@
-.button{
+.button-default {
   background-color: var(--green-glass-color);
   background-image: var(--green-glass-color-gradient);
+}
+
+.button-x {
+  background-color: var(--purple-glass-color);
+  background-image: var(--purple-glass-color-gradient);
+}
+
+.button-y {
+  background-color: var(--orange-glass-color);
+  background-image: var(--orange-glass-color-gradient);
 }
