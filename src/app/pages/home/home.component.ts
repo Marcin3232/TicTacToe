@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameStatus } from 'src/app/core/models/game-status.enum';
+import { DialogService } from 'src/app/core/services/dialog.service';
 import { GameService } from 'src/app/core/services/game.service';
+import { SummarizeDialogComponent } from 'src/app/layouts/summarize-dialog/summarize-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +14,12 @@ export class HomeComponent implements OnInit{
 
   gameStatusChanges?:GameStatus;
 
-  constructor(public gameService:GameService){
+  constructor(public gameService:GameService, private dialogService:DialogService){
     gameService.newGame();
   }
-  
+
   ngOnInit(): void {
     this.gameStatusChanges=this.gameService.getGameStatus;
+
   }
 }

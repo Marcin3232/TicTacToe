@@ -5,6 +5,7 @@
   --orange-glass-color: rgba(247, 180, 44, 0.5);
   --green-glass-color: rgba(137, 216, 211, 0.5);
   --purple-glass-color: rgba(164, 80, 139, 0.5);
+  --blue-glass-modal-color: rgba(31, 209, 249, 0.6);
 
   //gradients
   --blue-glass-color-gradient: linear-gradient(
@@ -26,6 +27,11 @@
     326deg,
     rgba(164, 80, 139, 0.1) 0%,
     rgba(95, 10, 135, 0.1) 74%
+  );
+  --blue-glass-modal-color-gradient: linear-gradient(
+    315deg,
+    rgba(31, 209, 249, 0.6) 0%,
+    rgba(182, 33, 254, 0.6) 74%
   );
   //font-size
 
