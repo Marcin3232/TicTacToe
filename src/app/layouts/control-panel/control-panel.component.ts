@@ -7,7 +7,7 @@ import { GameService } from 'src/app/core/services/game.service';
   styleUrls: ['./control-panel.component.scss'],
 })
 export class ControlPanelComponent {
-  constructor(public gameService: GameService) {}
+  constructor(protected gameService: GameService) {}
 
   getCurrentPlayer(): string {
     return this.gameService.getPlayerName(this.gameService.getCurrentPlayer);

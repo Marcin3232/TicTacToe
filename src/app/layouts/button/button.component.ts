@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ButtonComponent {
 
+  @Output()
+  clickRestart = new EventEmitter<boolean>;
+
+  onClick(){
+    this.clickRestart.emit(true);
+  }
 }

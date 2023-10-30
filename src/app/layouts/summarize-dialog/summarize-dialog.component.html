@@ -1,9 +1,14 @@
 <div id="overlay" class="overlay">
   <div class="card glass">
     <div class="container">
-      <h1 class="caption"><b>Player X wins!</b></h1>
+      <h1 class="caption">
+        <b>{{ setDescription() }}</b>
+      </h1>
       <p></p>
-      <button class="glass glass-flash glass-click button play-again-button">
+      <button
+        class="glass glass-flash glass-click button"
+        (click)="clickPlayAgain()"
+      >
         <h1><b> Play again</b></h1>
       </button>
     </div>

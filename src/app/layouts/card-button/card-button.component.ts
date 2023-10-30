@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BoardTile } from 'src/app/core/models/board-tile.model';
+import { GameStatus } from 'src/app/core/models/game-status.enum';
 import { State } from 'src/app/core/models/state.enum';
 import { GameService } from 'src/app/core/services/game.service';
 
@@ -12,21 +13,25 @@ export class CardButtonComponent {
   @Input()
   tile?: BoardTile;
 
+  @Output()
+  gameStatusChange = new EventEmitter<GameStatus>;
+
   constructor(private gameService: GameService) {}
 
   onClickTile() {
     this.gameService.clickTile(this.tile?.id!);
+    this.gameStatusChange.emit(this.gameService.getGameStatus);
   }
 
-  value(): string {
+  protected value(): string {
   return this.gameService.getPlayerName(this.tile!.state);
   }
 
-  setColorTile():string{
+  protected setColorTile():string{
     switch (this.tile?.state) {
       case State.X_PLAYER:
         return 'button-x';
-      case State.Y_PLAYER:
+      case State.O_PLAYER:
         return 'button-y';
         default:
           return 'button-default';

@@ -8,6 +8,9 @@ import { GameStatus } from '../models/game-status.enum';
 })
 export class GameService {
   private readonly boardLength: number = 9;
+  private winsX: number = 0;
+  private winsO: number = 0;
+  private draws: number = 0;
 
   private board: BoardTile[][] = [];
 
@@ -38,15 +41,42 @@ export class GameService {
     return this.currentPlayer();
   }
 
+  get getWinsX(): number {
+    return this.winsX;
+  }
+
+  private set setWinsX(increase: number) {
+    this.winsX += increase;
+  }
+
+  get getWinsO(): number {
+    return this.winsO;
+  }
+
+  private set setWinsO(increase: number) {
+    this.winsO += increase;
+  }
+
+  get getDraws(): number {
+    return this.draws;
+  }
+
+  private set setDraws(increase: number) {
+    this.draws += increase;
+  }
+
   constructor() {
     this.newGame();
   }
 
   public newGame() {
+    this.winsO = 0;
+    this.winsX = 0;
+    this.draws = 0;
     this.board = this.createBoard();
   }
 
-  public resetGame(){
+  public resetGame() {
     this.board = this.createBoard();
   }
 
@@ -60,10 +90,24 @@ export class GameService {
     switch (state) {
       case State.X_PLAYER:
         return 'X';
-      case State.Y_PLAYER:
-        return 'Y';
+      case State.O_PLAYER:
+        return 'O';
       default:
         return '';
+    }
+  }
+
+  public setWinGame() {
+    switch (this.gameStatus()) {
+      case GameStatus.WINNER_PLAYER_X:
+        this.setWinsX = 1;
+        break;
+      case GameStatus.WINNER_PLAYER_O:
+        this.setWinsO = 1;
+        break;
+      default:
+        this.setDraws = 1;
+        break;
     }
   }
 
@@ -87,7 +131,7 @@ export class GameService {
 
     return this.isXPlayer(notFilledBoard.length)
       ? State.X_PLAYER
-      : State.Y_PLAYER;
+      : State.O_PLAYER;
   }
 
   private isXPlayer(emptyBoardLength: number): boolean {
@@ -98,9 +142,9 @@ export class GameService {
     let status = null;
     this.board.forEach((item) => {
       const listX = item.filter((x) => x.state === State.X_PLAYER);
-      const listY = item.filter((y) => y.state === State.Y_PLAYER);
+      const listY = item.filter((y) => y.state === State.O_PLAYER);
       if (listY.length === 3) {
-        status = GameStatus.WINNER_PLAYER_Y;
+        status = GameStatus.WINNER_PLAYER_O;
         return;
       }
       if (listX.length === 3) {
@@ -114,9 +158,9 @@ export class GameService {
     let rotateBoard = this.rotateMatrix(this.board);
     rotateBoard.forEach((item) => {
       const listX = item.filter((x) => x.state === State.X_PLAYER);
-      const listY = item.filter((y) => y.state === State.Y_PLAYER);
+      const listY = item.filter((y) => y.state === State.O_PLAYER);
       if (listY.length === 3) {
-        status = GameStatus.WINNER_PLAYER_Y;
+        status = GameStatus.WINNER_PLAYER_O;
         return;
       }
       if (listX.length === 3) {
@@ -128,7 +172,7 @@ export class GameService {
     if (status !== null) return status;
 
     if (this.verifyDiagonal(State.X_PLAYER)) return GameStatus.WINNER_PLAYER_X;
-    if (this.verifyDiagonal(State.Y_PLAYER)) return GameStatus.WINNER_PLAYER_Y;
+    if (this.verifyDiagonal(State.O_PLAYER)) return GameStatus.WINNER_PLAYER_O;
 
     if (this.getFlatboard.some((item) => item.state === State.DEFAULT))
       return GameStatus.DURING;

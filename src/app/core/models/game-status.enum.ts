@@ -2,5 +2,5 @@ export enum GameStatus {
   DURING,
   DRAW,
   WINNER_PLAYER_X,
-  WINNER_PLAYER_Y,
+  WINNER_PLAYER_O,
 }
