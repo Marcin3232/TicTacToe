@@ -1,16 +1,18 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
+  @Input()
+  buttonName: string = '';
 
   @Output()
-  clickRestart = new EventEmitter<boolean>;
+  clickEvent = new EventEmitter<boolean>();
 
-  onClick(){
-    this.clickRestart.emit(true);
+  onClick() {
+    this.clickEvent.emit(true);
   }
 }

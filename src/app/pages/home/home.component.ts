@@ -33,4 +33,8 @@ export class HomeComponent implements OnInit {
   protected onRestart(){
     this.gameService.resetGame();
   }
+
+  protected onNewGame(){
+    this.gameService.newGame();
+  }
 }

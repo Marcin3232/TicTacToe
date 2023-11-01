@@ -8,7 +8,10 @@
   <div class="row align-items-center">
     <ng-container *ngFor="let tile of row">
       <div class="col">
-        <app-card-button [tile]="tile" (gameStatusChange)="onGameStatusChanged($event)"></app-card-button>
+        <app-card-button
+          [tile]="tile"
+          (gameStatusChange)="onGameStatusChanged($event)"
+        ></app-card-button>
       </div>
     </ng-container>
   </div>
@@ -21,6 +24,11 @@
 </div>
 <div class="row align-items-start">
   <div class="col">
-    <app-button (clickRestart)="onRestart()"></app-button>
+    <app-button buttonName="Restart" (clickEvent)="onRestart()"></app-button>
+  </div>
+</div>
+<div class="row align-items-start">
+  <div class="col">
+    <app-button buttonName="New Game" (clickEvent)="onNewGame()"></app-button>
   </div>
 </div>
